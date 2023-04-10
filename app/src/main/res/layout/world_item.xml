@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<data>
+    <variable
+        name="data"
+        type="com.mobile.bluepillow.model.World" />
+
+</data>
+<androidx.constraintlayout.widget.ConstraintLayout 
+android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<ImageView
+    android:id="@+id/image"
+    android:layout_width="85dp"
+    android:layout_height="85dp"
+    app:imageUrl = "@{data.worldImage}"
+    app:error = "@{@drawable/ic_launcher_background}"
+    app:placeholder = "@{@drawable/ic_launcher_background}"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBaseline_toTopOf="parent"
+    />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@{data.worldName}"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintBaseline_toBaselineOf="@id/image"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

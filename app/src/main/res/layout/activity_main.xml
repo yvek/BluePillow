@@ -14,7 +14,16 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".MainActivity">
-
+<ImageView
+    android:layout_width="wrap_content"
+    app:imageUrl = "@{vm.appImage}"
+    app:placeholder="@{@drawable/ic_launcher_background}"
+    app:error="@{@drawable/ic_launcher_background}"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toTopOf="@id/input"
+    />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
