@@ -1,17 +1,16 @@
 # BluePillow
-This repo shall present the implementation of latest concepts of Android.  
+This repo shall present the implementation of latest concepts along with best prctices of Android Development.  
 
 The project started with Hello world, but is being expanded to 
-* add worlds
+* add worlds 
 * print their details.
-
 
 UI
 * Activity
 * ViewModel
 
 Database
-* Room
+* Room with LiveData
 
 Architecture Component
 * DataBinding 
