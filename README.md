@@ -1,5 +1,5 @@
 # BluePillow
-This repo shall present the implementation of latest concepts along with best prctices of Android Development.  
+This repo shall present the implementation of latest concepts along with best practices of Android Development.  
 
 The project started with Hello world, but is being expanded to 
 * add worlds 
