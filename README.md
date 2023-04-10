@@ -14,11 +14,12 @@ Database
 * Room
 
 Architecture Component
-* DataBinding
+* DataBinding 
+  - Viewmodel data in layout
+  - Custom attributes with @BindingAdapter
 
 Whats currently cooking
 * Dependency Injection using HILT
-* DataBinding using bindables, 2 way binding
 * Utility - upload image
 * Network Module - fetch images from server
 * Test module
