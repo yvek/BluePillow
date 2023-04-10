@@ -17,7 +17,7 @@ Architecture Component
 * DataBinding
 
 Whats currently cooking
-* Depenedency Injection using HILT
+* Dependency Injection using HILT
 * DataBinding using bindables, 2 way binding
 * Utility - upload image
 * Network Module - fetch images from server
