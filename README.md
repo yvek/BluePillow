@@ -5,12 +5,14 @@ The project started with Hello world, but is being expanded to
 * add worlds 
 * print their details.
 
-UI
+UI Layer
 * Activity
 * ViewModel
 
-Database
-* Room with LiveData
+Data Layer
+* Database Room with LiveData
+
+Skipping Domain layer
 
 Architecture Component
 * DataBinding 
@@ -19,6 +21,6 @@ Architecture Component
 
 Whats currently cooking
 * Dependency Injection using HILT
-* Utility - upload image
+* Utilities - upload image
 * Network Module - fetch images from server
 * Test module
