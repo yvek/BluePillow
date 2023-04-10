@@ -10,42 +10,23 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.mobile.bluepillow.data.WorldRepository
+import com.mobile.bluepillow.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         //val viewModel by viewModels<MainViewModel>() // using activity ktx libraries
         //val vm = ViewModelProvider(this)[MainViewModel::class.java]  // using ViewModelProviders
         //val vm2 = ViewModelProviders.of(this).get(MainViewModel.class)
-
+        var binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val repository = WorldRepository(this)
         val vm3 = ViewModelProvider(this,ViewModelFactory(repository))[MainViewModel::class.java]
-        GlobalScope.launch (Dispatchers.IO) {
-            val size = vm3.getW().size
-            withContext(Dispatchers.Main){
-                findViewById<TextView>(R.id.tv).text = "We have $size worlds"
-            }
-
-        }
-        findViewById<Button>(R.id.add_world).setOnClickListener{
-            GlobalScope.launch (Dispatchers.IO) {
-                vm3.addWorld(findViewById<EditText>(R.id.input).text.toString())
-                val size = vm3.getW().size
-                withContext(Dispatchers.Main){
-                    findViewById<TextView>(R.id.tv).text = "We have $size worlds"
-                }
-
-            }
+        binding.apply {
+            lifecycleOwner = this@MainActivity
+            vm = vm3
         }
 
-
-    }
-
-
-
-    override fun onResume() {
-        super.onResume()
-    }
+        }
 }
