@@ -15,23 +15,29 @@ import com.mobile.bluepillow.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
-    private val binding:ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val viewModel by lazy {
+        val repository = WorldRepository(this)
+        return@lazy ViewModelProvider(this,ViewModelFactory(repository))[MainViewModel::class.java]
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //val viewModel by viewModels<MainViewModel>() // using activity ktx libraries
         //val vm = ViewModelProvider(this)[MainViewModel::class.java]  // using ViewModelProviders
         //val vm2 = ViewModelProviders.of(this).get(MainViewModel.class)
         setContentView(binding.root)
-        val repository = WorldRepository(this)
-        val vm3 = ViewModelProvider(this,ViewModelFactory(repository))[MainViewModel::class.java]
+
         binding.apply {
             lifecycleOwner = this@MainActivity // for observable fields
-            vm = vm3
+            vm = viewModel
         }
 
-        vm3.exposeList.observe(this){list ->
-            binding.apply { adapter = WorldAdapter(list) }
+        viewModel.exposeList.observe(this){
+            binding.apply {
+                adapter = WorldAdapter(viewModel.exposeList,this@MainActivity)
+            }
         }
+
 
     }
 

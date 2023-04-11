@@ -22,12 +22,13 @@ class MainViewModel(
 val worldRepository: WorldRepository): ViewModel() {
 // kotlin classes initiliazation is top-to-bottom hence variables before init
     val appImage = Configuration.homeIconUrl
-    var list = MutableLiveData<List<String>>()
+    private var list = MutableLiveData<List<String>>()
     var exposeList: LiveData<List<String>> = list
     var errorMessage = ""
     val TAG = "MainViewModel"
     init {
         Log.d(TAG, "init")
+        list.value = listOf()
         viewModelScope.launch{
             getWorlds()
         }
