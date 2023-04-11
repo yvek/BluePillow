@@ -2,6 +2,7 @@ package com.mobile.bluepillow
 
 import android.database.Observable
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.databinding.Bindable
@@ -10,8 +11,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mobile.bluepillow.adapter.WorldAdapter
 import com.mobile.bluepillow.config.Configuration
 import com.mobile.bluepillow.data.WorldRepository
+import com.mobile.bluepillow.model.World
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.*
 
@@ -22,7 +25,9 @@ val worldRepository: WorldRepository): ViewModel() {
     var list = MutableLiveData<List<String>>()
     var exposeList: LiveData<List<String>> = list
     var errorMessage = ""
+    val TAG = "MainViewModel"
     init {
+        Log.d(TAG, "init")
         viewModelScope.launch{
             getWorlds()
         }
@@ -34,6 +39,7 @@ val worldRepository: WorldRepository): ViewModel() {
     suspend fun getWorlds(){
         withContext(Dispatchers.Main){
             list.value = worldRepository.getWorlds()
+
         }
     }
 

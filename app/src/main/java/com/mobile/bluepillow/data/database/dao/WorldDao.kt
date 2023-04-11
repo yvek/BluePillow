@@ -6,7 +6,7 @@ import androidx.room.Query
 
 @Dao
 interface WorldDao {
-    @Query("Select world from Worlds")
+    @Query("Select world from Worlds order by id desc")
     suspend fun getWorldsList():List<String>
 
     @Query("Select world from Worlds where id = :id")

@@ -5,18 +5,20 @@
 <data>
     <variable
         name="data"
-        type="com.mobile.bluepillow.model.World" />
+        type="String" />
+
 
 </data>
 <androidx.constraintlayout.widget.ConstraintLayout 
 android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="4dp"
     >
 <ImageView
     android:id="@+id/image"
-    android:layout_width="85dp"
-    android:layout_height="85dp"
-    app:imageUrl = "@{data.worldImage}"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    app:imageUrl = "@{data}"
     app:error = "@{@drawable/ic_launcher_background}"
     app:placeholder = "@{@drawable/ic_launcher_background}"
     app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +28,7 @@ android:layout_width="match_parent"
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@{data.worldName}"
+        android:text="@{data}"
         app:layout_constraintStart_toEndOf="@id/image"
         app:layout_constraintBaseline_toBaselineOf="@id/image"
         />
