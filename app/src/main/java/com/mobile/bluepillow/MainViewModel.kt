@@ -20,27 +20,38 @@ import kotlinx.coroutines.*
 
 class MainViewModel(
 val worldRepository: WorldRepository): ViewModel() {
-// kotlin classes initiliazation is top-to-bottom hence variables before init
+
+    private val TAG = "MainViewModel"
+
+    // default home screen icon
     val appImage = Configuration.homeIconUrl
-    private var list = MutableLiveData<List<String>>()
-    var exposeList: LiveData<List<String>> = list
+
+    // data holders
+    private val list = MutableLiveData<List<String>>()
+    val exposeList: LiveData<List<String>> = list
+
+    //error state
     var errorMessage = ""
-    val TAG = "MainViewModel"
+
     init {
         Log.d(TAG, "init")
+        //initialise data with empty list
         list.value = listOf()
-        viewModelScope.launch{
+
+        //fetch list of worlds in background
+        viewModelScope.launch(Dispatchers.IO){
             getWorlds()
         }
 
     }
 
-
-    //@Bindable
     suspend fun getWorlds(){
-        withContext(Dispatchers.Main){
-            list.value = worldRepository.getWorlds()
+        //fetch worlds list
+        val data =  worldRepository.getWorlds()
 
+        //set state on Main thread
+        withContext(Dispatchers.Main){
+            list.value = data
         }
     }
 

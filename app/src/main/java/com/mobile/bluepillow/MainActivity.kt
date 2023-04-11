@@ -30,12 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             lifecycleOwner = this@MainActivity // for observable fields
             vm = viewModel
-        }
-
-        viewModel.exposeList.observe(this){
-            binding.apply {
-                adapter = WorldAdapter(viewModel.exposeList,this@MainActivity)
-            }
+            adapter = WorldAdapter(viewModel.exposeList,this@MainActivity)
         }
 
 
