@@ -1,24 +1,26 @@
 # BluePillow
-This repo shall present the implementation of latest concepts of Android.  
+This repo shall present the implementation of latest concepts along with best practices of Android Development.  
 
 The project started with Hello world, but is being expanded to 
-* add worlds
+* add worlds 
 * print their details.
 
-
-UI
+UI Layer
 * Activity
 * ViewModel
 
-Database
-* Room
+Data Layer
+* Database Room with LiveData
+
+Skipping Domain layer
 
 Architecture Component
-* DataBinding
+* DataBinding 
+  - Viewmodel data in layout
+  - Custom attributes with @BindingAdapter
 
 Whats currently cooking
 * Dependency Injection using HILT
-* DataBinding using bindables, 2 way binding
-* Utility - upload image
+* Utilities - upload image
 * Network Module - fetch images from server
 * Test module
