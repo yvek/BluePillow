@@ -3,7 +3,7 @@ This repo shall present the implementation of latest concepts along with best pr
 
 What all concepts are used till now:
 
-`MVVM`*`Data Binding`*`Room`*`DI(HILT)`
+`MVVM` * `Data Binding` * `Room` * `DI(HILT)`
 
 
 The project started with Hello world, but is being expanded to 
