@@ -1,4 +1,4 @@
-package com.mobile.bluepillow
+package com.mobile.bluepillow.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -1,15 +1,13 @@
-package com.mobile.bluepillow.adapter
+package com.mobile.bluepillow.ui
 
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.bluepillow.databinding.WorldItemBinding
-import com.mobile.bluepillow.model.World
 
 @SuppressLint("NotifyDataSetChanged")
 class WorldAdapter(private val worlds: LiveData<List<String>>, lifecycleOwner: LifecycleOwner) : RecyclerView.Adapter<WorldAdapter.WorldViewHolder>() {

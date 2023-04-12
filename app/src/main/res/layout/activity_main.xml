@@ -7,16 +7,16 @@
 <data>
 <variable
     name="vm"
-    type="com.mobile.bluepillow.MainViewModel" />
+    type="com.mobile.bluepillow.ui.MainViewModel" />
     <variable
         name="adapter"
-        type="com.mobile.bluepillow.adapter.WorldAdapter" />
+        type="com.mobile.bluepillow.ui.WorldAdapter" />
 </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 <ImageView
     android:layout_width="wrap_content"
     app:imageUrl = "@{vm.appImage}"

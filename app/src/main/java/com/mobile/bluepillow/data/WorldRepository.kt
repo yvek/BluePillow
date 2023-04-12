@@ -1,18 +1,15 @@
 package com.mobile.bluepillow.data
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.mobile.bluepillow.data.database.WorldDatabase
+import javax.inject.Inject
 
-class WorldRepository {
-     var context: Context
-     private var db:WorldDatabase
-    constructor(context: Context){
-        this.context = context
-        db = WorldDatabase.getInstance(context)!!
-    }
+class WorldRepository @Inject constructor(){
 
-
+    @Inject
+    lateinit var db:WorldDatabase
     suspend fun getWorlds():List<String>{
         return db.getWorldDao().getWorldsList()
     }

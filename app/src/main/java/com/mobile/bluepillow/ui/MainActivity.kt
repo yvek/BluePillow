@@ -1,24 +1,19 @@
-package com.mobile.bluepillow
+package com.mobile.bluepillow.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import com.mobile.bluepillow.adapter.WorldAdapter
 import com.mobile.bluepillow.data.WorldRepository
 import com.mobile.bluepillow.databinding.ActivityMainBinding
-import kotlinx.coroutines.*
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val viewModel by lazy {
-        val repository = WorldRepository(this)
-        return@lazy ViewModelProvider(this,ViewModelFactory(repository))[MainViewModel::class.java]
+       ViewModelProvider(this)[MainViewModel::class.java]
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

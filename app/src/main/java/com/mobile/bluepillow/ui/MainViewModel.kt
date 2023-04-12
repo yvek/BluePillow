@@ -1,25 +1,23 @@
-package com.mobile.bluepillow
+package com.mobile.bluepillow.ui
 
-import android.database.Observable
 import android.graphics.drawable.Drawable
 import android.util.Log
-import android.widget.EditText
 import android.widget.ImageView
-import androidx.databinding.Bindable
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobile.bluepillow.adapter.WorldAdapter
 import com.mobile.bluepillow.config.Configuration
 import com.mobile.bluepillow.data.WorldRepository
-import com.mobile.bluepillow.model.World
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class MainViewModel(
-val worldRepository: WorldRepository): ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val worldRepository: WorldRepository): ViewModel() {
 
     private val TAG = "MainViewModel"
 
