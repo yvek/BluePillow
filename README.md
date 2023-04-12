@@ -24,7 +24,8 @@ The list is displayed using *RecyclerView* that is built with *LiveData*. Hence 
   ```
   app:imageUrl = "url"
   app:placeholder = "@{@drawable/...}
-  app:error = "@{@drawable/..." ``` 
+  app:error = "@{@drawable/..." 
+  ``` 
   - *EditText* & a *Button* to save new world name in database 
   - *RecyclerView* displays list of worlds.
   
