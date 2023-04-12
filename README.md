@@ -29,7 +29,7 @@ The list is displayed using *RecyclerView* that is built with *LiveData*. Hence 
   - *EditText* & a *Button* to save new world name in database 
   - *RecyclerView* displays list of worlds.
   
-* ViewModel that exposes data to Activity layout using 
+* ViewModel that exposes *Immutable* data to Activity layout.
 
 ### Data Layer
 * Database Room with LiveData
