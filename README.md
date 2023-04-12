@@ -10,11 +10,11 @@ The project started with Hello world, but is being expanded to
 * add worlds 
 * print their details.
 
-###UI Layer
+### UI Layer
 * Activity
 * ViewModel
 
-###Data Layer
+### Data Layer
 * Database Room with LiveData
 
 ### Dependency Injection using HILT
