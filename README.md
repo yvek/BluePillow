@@ -1,6 +1,11 @@
 # BluePillow
 This repo shall present the implementation of latest concepts along with best practices of Android Development.  
 
+What all concepts are used till now:
+
+`MVVM`*`Data Binding`*`Room`*`DI(HILT)`
+
+
 The project started with Hello world, but is being expanded to 
 * add worlds 
 * print their details.
