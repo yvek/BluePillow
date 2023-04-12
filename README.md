@@ -15,7 +15,7 @@ Blue Pillow is a Android app built over MVVM. It takes a world name as input and
 
 The project started with simple Hello world. You can type the world name. You will see a list of worlds that are in DB.
 
-The list displayed using *RecyclerView* that is built with *LiveData*. Hence the list is always containing the latest data.
+The list is displayed using *RecyclerView* that is built with *LiveData*. Hence the list is always containing the latest data.
 
 
 ### UI Layer
@@ -24,7 +24,7 @@ The list displayed using *RecyclerView* that is built with *LiveData*. Hence the
   ```
   app:imageUrl = "url"
   app:placeholder = "@{@drawable/...}
-  app:error = "@{@drawable/..."``` 
+  app:error = "@{@drawable/..." ``` 
   - *EditText* & a *Button* to save new world name in database 
   - *RecyclerView* displays list of worlds.
   
