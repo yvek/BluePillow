@@ -12,7 +12,7 @@ UI Layer
 Data Layer
 * Database Room with LiveData
 
-Skipping Domain layer
+Dependency Injection using HILT
 
 Architecture Component
 * DataBinding 
@@ -20,7 +20,6 @@ Architecture Component
   - Custom attributes with @BindingAdapter
 
 Whats currently cooking
-* Dependency Injection using HILT
 * Utilities - upload image
 * Network Module - fetch images from server
 * Test module
