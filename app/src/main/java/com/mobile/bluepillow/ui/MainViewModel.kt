@@ -10,9 +10,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mobile.bluepillow.config.Configuration
 import com.mobile.bluepillow.data.WorldRepository
+import com.mobile.bluepillow.network.apiResponse.ApiResponse
+import com.mobile.bluepillow.network.model.TestResponse
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
@@ -63,6 +68,15 @@ class MainViewModel @Inject constructor(
             errorMessage = "Empty world!"
     }
 
+    fun fetchApiResponse(){
+        viewModelScope.launch {
+            val response = worldRepository.fetchTestApiResponse()
+
+
+
+        }
+    }
+
     companion object
     {
         @JvmStatic
@@ -71,7 +85,6 @@ class MainViewModel @Inject constructor(
             if (url != null) {
                 if(url.isNotEmpty())
                     Picasso.get().load(url).error(error).into(view)
-
             }else
                 view.setImageDrawable(placeholder)
         }
