@@ -2,6 +2,7 @@ package com.mobile.bluepillow.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.mobile.bluepillow.data.WorldRepository
 import com.mobile.bluepillow.databinding.ActivityMainBinding
@@ -23,5 +24,7 @@ class MainActivity : AppCompatActivity() {
             vm = viewModel
             adapter = WorldAdapter(viewModel.exposeList,this@MainActivity)
         }
+
+
     }
 }

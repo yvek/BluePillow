@@ -1,5 +1,6 @@
 package com.mobile.bluepillow.network.di
 
+import com.google.gson.GsonBuilder
 import com.mobile.bluepillow.config.Configuration
 import com.mobile.bluepillow.network.interceptor.OkHttpInterceptor
 import com.mobile.bluepillow.network.services.TestApiService
@@ -9,7 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -28,7 +29,7 @@ object NetworkModule{
     fun providesRetrofitInstance(okHttpClient: OkHttpClient):Retrofit{
         return Retrofit.Builder().client(okHttpClient)
             .baseUrl(Configuration.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 

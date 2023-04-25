@@ -1,10 +1,10 @@
 package com.mobile.bluepillow.data
 
 import com.mobile.bluepillow.data.database.WorldDatabase
-import com.mobile.bluepillow.network.apiResponse.ApiResponse
 import com.mobile.bluepillow.network.model.TestResponse
 import com.mobile.bluepillow.network.services.TestApiService
 import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 
 class WorldRepository @Inject constructor(){
@@ -22,7 +22,7 @@ class WorldRepository @Inject constructor(){
         db.getWorldDao().insertWorld(world)
     }
 
-    suspend fun fetchTestApiResponse(): Call<ApiResponse<TestResponse>> {
+    suspend fun fetchTestApiResponse(): Response<TestResponse> {
         return testAPI.getTestJson()
     }
 
