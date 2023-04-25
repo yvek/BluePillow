@@ -10,9 +10,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mobile.bluepillow.config.Configuration
 import com.mobile.bluepillow.data.WorldRepository
+import com.mobile.bluepillow.network.apiResponse.Error
+import com.mobile.bluepillow.network.apiResponse.Exception
+import com.mobile.bluepillow.network.apiResponse.Success
+import com.mobile.bluepillow.network.apiResponse.handleApi
+import com.mobile.bluepillow.network.model.TestResponse
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.SharedFlow
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,6 +37,8 @@ class MainViewModel @Inject constructor(
     private val list = MutableLiveData<List<String>>()
     val exposeList: LiveData<List<String>> = list
 
+    //private val jsonData = SharedFlow<TestResponse>
+
     //error state
     var errorMessage = ""
 
@@ -38,7 +49,13 @@ class MainViewModel @Inject constructor(
 
         //fetch list of worlds in background
         viewModelScope.launch(Dispatchers.IO){
-            getWorlds()
+            async{
+                getWorlds()
+            }
+            async {
+                fetchApiResponse()
+            }
+
         }
 
     }
@@ -63,6 +80,15 @@ class MainViewModel @Inject constructor(
             errorMessage = "Empty world!"
     }
 
+     suspend fun fetchApiResponse(){
+         when(val value  = handleApi{ worldRepository.fetchTestApiResponse()}){
+             is Error -> println("Error")
+             is Exception -> println("Exception")
+             is Success -> println("Success ${value.data}")
+         }
+     }
+
+
     companion object
     {
         @JvmStatic
@@ -71,7 +97,6 @@ class MainViewModel @Inject constructor(
             if (url != null) {
                 if(url.isNotEmpty())
                     Picasso.get().load(url).error(error).into(view)
-
             }else
                 view.setImageDrawable(placeholder)
         }

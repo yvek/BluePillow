@@ -2,6 +2,7 @@ package com.mobile.bluepillow.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.mobile.bluepillow.data.WorldRepository
 import com.mobile.bluepillow.databinding.ActivityMainBinding
@@ -17,11 +18,7 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //val viewModel by viewModels<MainViewModel>() // using activity ktx libraries
-        //val vm = ViewModelProvider(this)[MainViewModel::class.java]  // using ViewModelProviders
-        //val vm2 = ViewModelProviders.of(this).get(MainViewModel.class)
         setContentView(binding.root)
-
         binding.apply {
             lifecycleOwner = this@MainActivity // for observable fields
             vm = viewModel
@@ -30,8 +27,4 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-
-
-
 }
