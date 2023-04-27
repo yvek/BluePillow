@@ -1,4 +1,4 @@
-BluePillow
+🧙‍♀️ BluePillow
 =====
 
 Blue Pillow is a Android app built over MVVM. It takes a world name as input and adds it into the local storage of device.
