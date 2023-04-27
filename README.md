@@ -5,6 +5,7 @@
   </p>
 <p align="center"> 
 Blue Pillow is a Android app demonstrating Coroutines, Data binding, Viewmodel, Room with LiveData built on MVVM architecture. 
+  </br>
 It takes a world name as input and adds it into the local storage of device. This behaviour shall change in future as I am exploring some fun API right now.
 </p>
 </br>
