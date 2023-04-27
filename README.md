@@ -1,7 +1,13 @@
-🧙‍♀️ BluePillow
-=====
+<h1 align="center">🧙‍♀️ BluePillow </h1>
 
-Blue Pillow is a Android app built over MVVM. It takes a world name as input and adds it into the local storage of device.
+<p align="center">
+  <a href="https://android-arsenal.com/api?level=24"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
+  </p>
+<p align="center"> 
+Blue Pillow is a Android app demonstrating Coroutines, Data binding, Viewmodel, Room with LiveData built on MVVM architecture. 
+It takes a world name as input and adds it into the local storage of device. This behaviour shall change in future as I am exploring some fun API right now.
+</p>
+</br>
 
 ## Concepts implemented
 
