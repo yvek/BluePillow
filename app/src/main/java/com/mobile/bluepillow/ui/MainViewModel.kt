@@ -28,8 +28,6 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val worldRepository: WorldRepository): ViewModel() {
 
-    private val TAG = "MainViewModel"
-
     // default home screen icon
     val appImage = Configuration.homeIconUrl
 
@@ -91,6 +89,7 @@ class MainViewModel @Inject constructor(
 
     companion object
     {
+        const val TAG = "MainViewModel"
         @JvmStatic
         @BindingAdapter("imageUrl","placeholder","error", requireAll = false)
         fun setImageUrl(view: ImageView , url:String?,placeholder:Drawable, error: Drawable){
