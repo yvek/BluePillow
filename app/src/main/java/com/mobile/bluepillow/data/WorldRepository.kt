@@ -1,31 +1,49 @@
 package com.mobile.bluepillow.data
 
 import com.mobile.bluepillow.data.database.WorldDatabase
+import com.mobile.bluepillow.network.model.ErrorResponseMapper
 import com.mobile.bluepillow.network.model.TestResponse
-import com.mobile.bluepillow.network.services.TestApiService
-import retrofit2.Call
+import com.mobile.bluepillow.network.services.ApiService
+import com.skydoves.sandwich.map
+import com.skydoves.sandwich.onError
+import com.skydoves.sandwich.onException
+import com.skydoves.sandwich.suspendOnSuccess
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import retrofit2.Response
 import javax.inject.Inject
 
 class WorldRepository @Inject constructor(){
 
     @Inject
-    lateinit var db:WorldDatabase
+    lateinit var worldDatabase:WorldDatabase
 
     @Inject
-    lateinit var testAPI: TestApiService
+    lateinit var apiService: ApiService
 
     suspend fun getWorlds():List<String>{
-        return db.getWorldDao().getWorldsList()
+        return worldDatabase.getWorldDao().getWorldsList()
     }
 
     suspend fun addWorld(world: String) {
-        db.getWorldDao().insertWorld(world)
+        worldDatabase.getWorldDao().insertWorld(world)
     }
 
     suspend fun fetchTestApiResponse(): Response<TestResponse> {
-        return testAPI.getTestJson()
+        return apiService.getTestJson()
     }
+
+    suspend fun fetchTestApiResponsev2(onStart: ()-> Unit,onComplete: () -> Unit, onError: (String?) -> Unit, )= flow {
+        apiService.getTestJsonv2()
+            .suspendOnSuccess {
+                emit(data)
+            }
+            .onError { map(ErrorResponseMapper) { onError("[Code: $code]: $message") } }
+            .onException { onError(message) }
+    }.onStart { onStart }
+    .onCompletion { onComplete }
+
 
 
 }

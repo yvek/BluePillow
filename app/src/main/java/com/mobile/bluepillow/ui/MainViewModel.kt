@@ -86,6 +86,18 @@ class MainViewModel @Inject constructor(
          }
      }
 
+    suspend fun fetchApiResponseWithFlow() =
+        viewModelScope.launch{
+            worldRepository.fetchTestApiResponsev2(
+                { Log.d(TAG, "fetchApiResponsev2: onStart")},
+                { Log.d(TAG, "fetchApiResponsev2: onComplete")},
+                { Log.d(TAG, "fetchApiResponsev2: onError $it")},
+                ).collect{
+
+            }
+        }
+
+
 
     companion object
     {

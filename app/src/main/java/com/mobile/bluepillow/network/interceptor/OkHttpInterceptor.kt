@@ -9,7 +9,7 @@ class OkHttpInterceptor: Interceptor {
     val TAG = "OkHttpInterceptor"
     override fun intercept(chain: Interceptor.Chain): Response {
         val request  = chain.request()
-        Log.d(TAG, "intercept: "+request.body())
+        Log.d(TAG, "intercept: "+ request.body)
         return chain.proceed(request)
     }
 }

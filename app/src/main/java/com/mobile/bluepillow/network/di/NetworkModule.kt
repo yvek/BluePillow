@@ -1,9 +1,10 @@
 package com.mobile.bluepillow.network.di
 
-import com.google.gson.GsonBuilder
 import com.mobile.bluepillow.config.Configuration
 import com.mobile.bluepillow.network.interceptor.OkHttpInterceptor
-import com.mobile.bluepillow.network.services.TestApiService
+import com.skydoves.sandwich.retrofit.adapters.ApiResponseCallAdapterFactory
+import com.mobile.bluepillow.network.qualifiers.Sandwich
+import com.mobile.bluepillow.network.services.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,8 +36,19 @@ object NetworkModule{
 
     @Provides
     @Singleton
-    fun provideTestAPIService(retrofit: Retrofit):TestApiService{
-        return retrofit.create(TestApiService::class.java)
+    @Sandwich
+    fun providesRetrofitInstanceWithSandwich(okHttpClient: OkHttpClient):Retrofit{
+        return Retrofit.Builder().client(okHttpClient)
+            .baseUrl(Configuration.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTestAPIService(@Sandwich retrofit: Retrofit):ApiService{
+        return retrofit.create(ApiService::class.java)
     }
 
 
