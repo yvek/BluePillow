@@ -6,8 +6,16 @@
   <a href="https://github.com/skydoves/Pokedex/actions"><img alt="Build Status" src = "https://github.com/yvek/BluePillow/workflows/Android%20CI/badge.svg"/></a> 
 
   </p>
-Blue Pillow is a Android app demonstrating Coroutines, Data binding, Viewmodel, Room with LiveData, Kotlin Flows (in progress) built over MVVM architecture. 
+Blue Pillow is an Android app that demonstrates use of Actvities, Viewmodel, Data binding, LivreData, Flow, Coroutines, Room. It is built over MVVM architecture. 
   </br>
+  </br>
+  
+  ## What does it do?
+    - Takes a world name.
+    - Stores it in local database.
+    - Display list of worlds stored on Device.
+    - The list refreshes on adding new worlds.
+    - Loads a cute image from the internet.
   </br>
   
 <img src="/Docs/gifs/BluePillow.gif" width="250" />
@@ -18,6 +26,8 @@ Blue Pillow is a Android app demonstrating Coroutines, Data binding, Viewmodel, 
 * `Data Binding` with custom attributes such as ```xml app:imageUrl```
 * `Room` library
 * `HILT` *Dependency Injection* for loading objects such as Retrofit client, Database, Repositories, Viewmodels etc
+* `Retrofit` client that maps response methods using `LiveData/Flow`
+
 
  
 ## Explaination
