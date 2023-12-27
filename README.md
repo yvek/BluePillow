@@ -26,7 +26,7 @@ Blue Pillow is an Android app that demonstrates use of Activities, Viewmodel, Da
 * `Data Binding` with custom attributes such as ```xml app:imageUrl```
 * `Room` library
 * `HILT` *Dependency Injection* for loading objects such as Retrofit client, Database, Repositories, Viewmodels etc
-* `Retrofit` client that maps response methods using `LiveData/Flow`
+* `Retrofit` client that maps response to methods using `LiveData/Flow`
 
 
  
@@ -47,10 +47,19 @@ The list is displayed using *RecyclerView* that is built with *LiveData*. Hence 
   - *EditText* & a *Button* to save new world name in database 
   - *RecyclerView* displays list of worlds.
   
-* ViewModel that exposes *Immutable* data to Activity layout.
+* ViewModel
+  - Exposes *Immutable* data to Activity layout.
+  - Performs api calls while providing callbacks for each stage of an api call, that is: `onStart`, `onCompleted` and `onFinish`.
 
 ## Data Layer
-* Database Room with LiveData
+* Database Room with LiveData.
+* Data models for Room and network request/response.
+* Repositories to handle api/Room data and passes data back to viewmodels using `kotlin flows`.
+
+## Network Layer
+* Using Retrofit for network calls.
+* Using [Sandwich by Skydoves](https://github.com/skydoves/sandwich) to further enhance api calls with much better error handling.
+* ErrorResponseMapper to centeralise error handling.
 
 ## Dependency Injection using HILT
 
@@ -60,6 +69,6 @@ The list is displayed using *RecyclerView* that is built with *LiveData*. Hence 
   - Custom attributes with `@BindingAdapter`
 
 ## Whats currently cooking
-* Utilities - upload image
-* Network Module - fetch images from server
-* Test module
+* BaseActivity, BaseViewmodel & BaseRepository.
+* Utilities - CommonTheme, Image load, Dialogs.
+* Test module.
