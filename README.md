@@ -6,7 +6,7 @@
   <a href="https://github.com/skydoves/Pokedex/actions"><img alt="Build Status" src = "https://github.com/yvek/BluePillow/workflows/Android%20CI/badge.svg"/></a> 
 
   </p>
-Blue Pillow is an Android app that demonstrates use of Activities, Viewmodel, Data binding, LivreData, Flow, Coroutines, Room. It is built over MVVM architecture. 
+Blue Pillow is an Android app that demonstrates use of Activities, Viewmodel, Data binding, LiveData, Flow, Coroutines & Room. It is built over MVVM architecture. 
   </br>
   </br>
   
