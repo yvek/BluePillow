@@ -8,6 +8,10 @@
   </p>
 Blue Pillow is a Android app demonstrating Coroutines, Data binding, Viewmodel, Room with LiveData built over MVVM architecture. 
   </br>
+  </br>
+  
+<img src="/Docs/gifs/BluePillow.gif" width="250" />
+
 
 ## Concepts implemented
 * `MVVM` architecture pattern
