@@ -1,15 +1,17 @@
-package com.bp.core_network.network.di
+package com.mobile.bluepillow.network.di
 
-import com.bp.core_network.network.config.Configuration
-import com.bp.core_network.network.interceptor.OkHttpInterceptor
-import com.bp.core_network.network.services.TestApiService
+import com.mobile.bluepillow.config.Configuration
+import com.mobile.bluepillow.network.interceptor.OkHttpInterceptor
+import com.skydoves.sandwich.retrofit.adapters.ApiResponseCallAdapterFactory
+import com.mobile.bluepillow.network.qualifiers.Sandwich
+import com.mobile.bluepillow.network.services.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -28,14 +30,30 @@ object NetworkModule{
     fun providesRetrofitInstance(okHttpClient: OkHttpClient):Retrofit{
         return Retrofit.Builder().client(okHttpClient)
             .baseUrl(Configuration.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideTestAPIService(retrofit: Retrofit): TestApiService {
-        return retrofit.create(TestApiService::class.java)
+    @Sandwich
+    fun providesRetrofitInstanceWithSandwich(okHttpClient: OkHttpClient):Retrofit{
+        return Retrofit.Builder().client(okHttpClient)
+            .baseUrl(Configuration.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
+            .build()
     }
+
+    @Provides
+    @Singleton
+    fun provideTestAPIService(@Sandwich retrofit: Retrofit):ApiService{
+        return retrofit.create(ApiService::class.java)
+    }
+
+
+
+
+
 
 }
