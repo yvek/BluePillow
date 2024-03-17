@@ -7,7 +7,6 @@ plugins {
 
 android {
     namespace = "com.bp.core_network"
-    compileSdk = 34
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17

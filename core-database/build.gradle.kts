@@ -7,8 +7,6 @@ plugins {
 
 android {
     namespace = "com.bp.core_database"
-    compileSdk = 34
-
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
