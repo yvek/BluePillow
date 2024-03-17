@@ -1,6 +1,5 @@
 package com.bp.core_network.network.model
 
-import com.bp.core_network.network.model.ErrorResponse
 import com.skydoves.sandwich.ApiResponse
 import com.skydoves.sandwich.StatusCode.PayloadTooLarge
 import com.skydoves.sandwich.mappers.ApiErrorModelMapper

@@ -69,26 +69,16 @@ class MainViewModel @Inject constructor(
             errorMessage = "Empty world!"
     }
 
-     suspend fun fetchApiResponse(){
-         when(val value  =  worldRepository.fetchTestApiResponse()){
-             is com.bp.core_network.network.apiResponse.Error -> TODO()
-             is com.bp.core_network.network.apiResponse.Exception -> TODO()
-             is com.bp.core_network.network.apiResponse.Success -> TODO()
-         }
-     }
-
-    suspend fun fetchApiResponseWithFlow() =
-        viewModelScope.launch{
-            worldRepository.fetchTestApiResponsev2(
-                { Log.d(TAG, "fetchApiResponsev2: onStart")},
-                { Log.d(TAG, "fetchApiResponsev2: onComplete")},
-                { Log.d(TAG, "fetchApiResponsev2: onError $it")},
-                ).collect{
-
+    suspend fun fetchApiResponse(){
+            worldRepository.fetchTestApiResponse(
+                {},
+                {}
+            ) {message,code ->
+                Log.d(TAG, "fetchApiResponse: $code Error: $message ")
+            }.collect{
+                Log.d(TAG, "fetchApiResponse: $it")
             }
-        }
-
-
+     }
 
     companion object
     {
