@@ -20,6 +20,7 @@ android {
 dependencies {
 
     implementation(project(":core-network"))
+    implementation(project(":core-database"))
     implementation ("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-compiler:2.44")
     testImplementation("junit:junit:4.13.2")

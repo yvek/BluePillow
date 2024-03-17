@@ -13,5 +13,6 @@ import javax.inject.Inject
 version=1, exportSchema = true
 )
 abstract class WorldDatabase: RoomDatabase() {
-    abstract fun getWorldDao(): WorldDao
+    abstract fun getWorldDao():WorldDao
+
 }
