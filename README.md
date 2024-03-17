@@ -1,28 +1,25 @@
 # BluePillow
-This repo presents the implementation of MVVM with clean architecture.  
+This repo presents the implementation of MVVM with clean architecture.
 
-The project adds worlds name and shows them below in the same screen.
+The project is simple, it adds a world name and updates the list below within the same screen.
 
 Functionalities:
 * add worlds 
-* print their details.
+* print its name.
 
-
-
-App Module
-UI Layer
+App Module consists of a:
 * Activity
 * ViewModel
 
-Data Module: Provides repository to app module.
+Data Module, provides world repository to the app module:
 * Database calls
 * Network calls
 
 Database Module: Provides local database
 
-Network Module: Provides network support
+Network Module: Provides network calls and their responses.
 
-Skipped Domain layer, but might add it in future
+Skipped Domain layer, but if required will add it in future.
 
 Architecture Component
 * DataBinding 
@@ -30,7 +27,6 @@ Architecture Component
   - Custom attributes with @BindingAdapter
 
 Whats currently cooking
-* Dependency Injection using HILT
 * Utilities - upload image
 * Network Module - fetch images from server
 * Test module
