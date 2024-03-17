@@ -9,20 +9,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mobile.bluepillow.config.Configuration
-import com.mobile.bluepillow.data.WorldRepository
-import com.mobile.bluepillow.network.apiResponse.ApiResponse
-import com.mobile.bluepillow.network.model.TestResponse
+import com.example.core_data.repository.WorldRepository
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val worldRepository: WorldRepository): ViewModel() {
+    private val worldRepository: com.example.core_data.repository.WorldRepository
+): ViewModel() {
 
     private val TAG = "MainViewModel"
 
