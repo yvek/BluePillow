@@ -1,4 +1,4 @@
-package com.mobile.bluepillow.network.model
+package com.bp.core_network.network.model
 
 import com.squareup.moshi.Json
 

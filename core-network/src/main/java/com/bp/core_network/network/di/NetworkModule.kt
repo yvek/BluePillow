@@ -1,8 +1,8 @@
-package com.mobile.bluepillow.network.di
+package com.bp.core_network.network.di
 
-import com.mobile.bluepillow.config.Configuration
-import com.mobile.bluepillow.network.interceptor.OkHttpInterceptor
-import com.mobile.bluepillow.network.services.TestApiService
+import com.bp.core_network.network.config.Configuration
+import com.bp.core_network.network.interceptor.OkHttpInterceptor
+import com.bp.core_network.network.services.TestApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,13 +34,8 @@ object NetworkModule{
 
     @Provides
     @Singleton
-    fun provideTestAPIService(retrofit: Retrofit):TestApiService{
+    fun provideTestAPIService(retrofit: Retrofit): TestApiService {
         return retrofit.create(TestApiService::class.java)
     }
-
-
-
-
-
 
 }
