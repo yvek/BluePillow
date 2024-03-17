@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
     @Provides
-    fun provideBlogDao(
+    fun provideWorldDao(
         database: WorldDatabase
     ): WorldDao = database.getWorldDao()
 

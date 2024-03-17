@@ -5,10 +5,11 @@ import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.mobile.bluepillow.databinding.ActivityMainBinding
+import com.mobile.bluepillow.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val viewModel by lazy {
