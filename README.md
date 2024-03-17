@@ -22,7 +22,7 @@ Blue Pillow is an Android app that demonstrates use of Activities, Viewmodel, Da
 
 
 ## Concepts implemented
-* `MVVM` architecture pattern
+* `MVVM` with Clean architecture pattern
 * `Data Binding` with custom attributes such as ```xml app:imageUrl```
 * `Room` library
 * `HILT` *Dependency Injection* for loading objects such as Retrofit client, Database, Repositories, Viewmodels etc

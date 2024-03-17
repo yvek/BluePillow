@@ -3,7 +3,9 @@ package com.bp.core_network.network.di
 import com.bp.core_network.network.config.Configuration
 import com.bp.core_network.network.interceptor.OkHttpInterceptor
 import com.bp.core_network.network.services.TestApiService
+import com.skydoves.sandwich.retrofit.adapters.ApiResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,10 +29,11 @@ object NetworkModule{
     @Provides
     @Singleton
     fun providesRetrofitInstance(okHttpClient: OkHttpClient):Retrofit{
-        val moshi =  Moshi.Builder().build()
+
         return Retrofit.Builder().client(okHttpClient)
             .baseUrl(Configuration.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addConverterFactory(MoshiConverterFactory.create())
+            .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
             .build()
     }
 
