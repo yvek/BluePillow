@@ -23,6 +23,8 @@ dependencies {
     implementation("com.github.skydoves:sandwich-retrofit:2.0.5")
 
     implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.15.1")

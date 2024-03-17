@@ -9,6 +9,6 @@ import com.squareup.moshi.JsonClass
 data class TestResponse (
     @Json(name = "userId") val userId : Int,
     @Json(name = "id") val id : Int,
-    @Json(name = "completed") val completed : Int,
+    @Json(name = "completed") val completed : Boolean,
     @Json(name = "title") val title : String
 )
