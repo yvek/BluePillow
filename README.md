@@ -1,18 +1,28 @@
 # BluePillow
-This repo shall present the implementation of latest concepts along with best practices of Android Development.  
+This repo presents the implementation of MVVM with clean architecture.  
 
-The project started with Hello world, but is being expanded to 
+The project adds worlds name and shows them below in the same screen.
+
+Functionalities:
 * add worlds 
 * print their details.
 
+
+
+App Module
 UI Layer
 * Activity
 * ViewModel
 
-Data Layer
-* Database Room with LiveData
+Data Module: Provides repository to app module.
+* Database calls
+* Network calls
 
-Skipping Domain layer
+Database Module: Provides local database
+
+Network Module: Provides network support
+
+Skipped Domain layer, but might add it in future
 
 Architecture Component
 * DataBinding 
