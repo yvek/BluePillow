@@ -1,4 +1,4 @@
-package com.mobile.bluepillow.data.database.entities
+package com.bp.core_database.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

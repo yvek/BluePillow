@@ -1,4 +1,4 @@
-package com.mobile.bluepillow.data.database.dao
+package com.bp.core_database.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

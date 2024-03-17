@@ -1,8 +1,8 @@
-package com.mobile.bluepillow.data.di
+package com.bp.core_database.di
 
 import android.app.Application
 import androidx.room.Room
-import com.mobile.bluepillow.data.database.WorldDatabase
+import com.bp.core_database.database.WorldDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
